@@ -1,3 +1,25 @@
+require 'yaml'
+
+env = ENV["RAILS_ENV"] || 'development'
+dbconfig = File.expand_path("../config/database.yml", __FILE__)
+raise "You need to configure config/database.yml first" unless File.exists?(dbconfig)
+
+config = YAML.load(File.read(dbconfig))
+environment = config[env]
+
+adapter = environment['adapter'] if environment
+raise "Please set an adapter in database.yml for #{env} environment" if adapter.nil?
+case adapter
+when 'sqlite3'
+  gem 'sqlite3'
+when 'postgresql'
+  gem 'pg'
+when 'mysql2'
+  gem 'mysql2'
+else
+  raise "Not supported database adapter: #{adapter}"
+end
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -43,3 +65,13 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'devise'
+gem 'bootstrap-sass'
+gem 'simple-navigation'
+gem 'simple_form'
+gem 'inherited_resources'
+
+group :development do
+  gem 'travis'
+end
