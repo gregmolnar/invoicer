@@ -2,9 +2,11 @@ require 'yaml'
 
 env = ENV["RAILS_ENV"] || 'development'
 dbconfig = File.expand_path("../config/database.yml", __FILE__)
-raise "You need to configure config/database.yml first" unless File.exists?(dbconfig)
 
-config = YAML.load(File.read(dbconfig))
+raise "You need to configure config/database.yml first" unless File.exists?(dbconfig)
+require 'erb'
+config = YAML.load(ERB.new(File.read(dbconfig)).result)
+
 environment = config[env]
 
 adapter = environment['adapter'] if environment
@@ -71,7 +73,3 @@ gem 'bootstrap-sass'
 gem 'simple-navigation'
 gem 'simple_form'
 gem 'inherited_resources'
-
-group :development do
-  gem 'travis'
-end
