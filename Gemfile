@@ -69,7 +69,17 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'simple-navigation'
 gem 'simple_form'
 gem 'inherited_resources'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+group :development, :test do
+  gem "factory_girl_rails", ">= 4.1.0"
+end
