@@ -82,7 +82,4 @@ end
 
 group :development, :test do
   gem "factory_girl_rails", ">= 4.1.0"
-  gem "poltergeist"
-  gem "capybara"
-  gem 'rspec-rails', '~> 2.0'
 end
