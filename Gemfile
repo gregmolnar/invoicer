@@ -73,3 +73,16 @@ gem 'bootstrap-sass'
 gem 'simple-navigation'
 gem 'simple_form'
 gem 'inherited_resources'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+group :development, :test do
+  gem "factory_girl_rails", ">= 4.1.0"
+  gem "poltergeist"
+  gem "capybara"
+  gem 'rspec-rails', '~> 2.0'
+end
