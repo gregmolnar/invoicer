@@ -69,7 +69,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: 'master'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'simple-navigation'
 gem 'simple_form'
 gem 'inherited_resources'
