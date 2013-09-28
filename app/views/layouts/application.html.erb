@@ -17,10 +17,10 @@
       <a class="navbar-brand" href="#">Invoicer</a>
     </div>
     <div class="collapse navbar-collapse">
-      <%= render_navigation %>
+      <%= render_navigation(expand_all: true) %>
       <div class="navbar-right">
         <ul class="nav navbar-nav">
-          <li><%= link_to raw('<span class="glyphicon glyphicon-off"></span> Logout'), destroy_user_session_path %></li>
+          <li><%= link_to raw('<span class="glyphicon glyphicon-off"></span> Logout'), destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
     </div><!--/.nav-collapse -->
