@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130930191648) do
+ActiveRecord::Schema.define(version: 20130930192702) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -34,6 +34,26 @@ ActiveRecord::Schema.define(version: 20130930191648) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "invoices", force: true do |t|
+    t.integer  "client_id"
+    t.string   "invoice_number"
+    t.date     "due_date"
+    t.string   "name"
+    t.string   "address"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "county"
+    t.string   "country"
+    t.string   "tax_number"
+    t.integer  "invoice_status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invoices", ["client_id"], name: "index_invoices_on_client_id"
+  add_index "invoices", ["invoice_status_id"], name: "index_invoices_on_invoice_status_id"
+  add_index "invoices", ["name"], name: "index_invoices_on_name"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

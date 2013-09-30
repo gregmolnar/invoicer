@@ -2,7 +2,7 @@ require 'test_helper'
 
 class InvoiceStatusesControllerTest < ActionController::TestCase
   setup do
-    @invoice_status = invoice_statuses(:one)
+    @invoice_status = FactoryGirl.create(:invoice_status)
   end
 
   test "should get index" do
