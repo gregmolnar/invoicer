@@ -1,4 +1,5 @@
 Invoicer::Application.routes.draw do
+  resources :invoice_statuses
   resources :clients
 
   devise_for :users

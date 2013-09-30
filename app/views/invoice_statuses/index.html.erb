@@ -1,0 +1,27 @@
+<h1>Listing invoice_statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoice_statuses.each do |invoice_status| %>
+      <tr>
+        <td><%= invoice_status.name %></td>
+        <td><%= link_to 'Show', invoice_status %></td>
+        <td><%= link_to 'Edit', edit_invoice_status_path(invoice_status) %></td>
+        <td><%= link_to 'Destroy', invoice_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Invoice status', new_invoice_status_path %>

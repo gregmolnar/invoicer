@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @invoice_status.name %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_status_path(@invoice_status) %> |
+<%= link_to 'Back', invoice_statuses_path %>
