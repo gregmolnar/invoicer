@@ -57,6 +57,12 @@ SimpleNavigation::Configuration.run do |navigation|
       sub_nav.dom_class = 'dropdown-menu'
     end
 
+    primary.item :invoices, 'Invoices <b class="caret"></b>', '#', class: 'dropdown',  :link => {:class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} do |sub_nav|
+      sub_nav.item :clients, 'List', invoices_path
+      sub_nav.item :create_client, 'Create', new_invoice_path
+      sub_nav.dom_class = 'dropdown-menu'
+    end
+
     # you can also specify a css id or class to attach to this particular level
     # works for all levels of the menu
     # primary.dom_id = 'menu-id'
