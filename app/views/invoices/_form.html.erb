@@ -2,7 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :client %>
+    <%= f.input :client, as: :string %>
+    <%= f.association :client, as: :hidden %>
     <%= f.input :invoice_number %>
     <%= f.input :due_date %>
     <%= f.input :name %>
