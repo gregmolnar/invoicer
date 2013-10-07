@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require "capybara/rails"
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
@@ -25,4 +26,20 @@ class ActionController::TestCase
 end
 
 class ActionDispatch::IntegrationTest
+  include Warden::Test::Helpers
+  include Capybara::DSL
+  require 'capybara/poltergeist'
+  Capybara.javascript_driver = :poltergeist
+
+  def setup
+    Warden.test_mode!
+    @user = FactoryGirl.create(:user)
+    login_as(@user, :scope => :user)
+  end
+
+  def teardown
+    Warden.test_reset!
+  end
 end
+
+
