@@ -11,3 +11,6 @@ $ ->
       valueKey: 'name'
     }
   ]
+  $(document).on 'typeahead:selected', (event, data) ->
+    $.each data, (i, e) ->
+      $("#invoice_#{i}").val(e)
