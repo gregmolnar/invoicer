@@ -73,7 +73,7 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'simple-navigation'
 gem 'simple_form'
 gem 'inherited_resources'
-
+gem 'turn', :group => :test
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -84,4 +84,6 @@ group :development, :test do
   gem "factory_girl_rails", ">= 4.1.0"
   gem "capybara"
   gem 'poltergeist'
+  gem 'guard-minitest', '~> 2.0.0'
+  gem "rb-fsevent", "~> 0.9.3"
 end
