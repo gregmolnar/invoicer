@@ -20,7 +20,12 @@ class InvoicesControllerTest < ActionController::TestCase
     assert_difference('Invoice.count') do
       post :create, invoice: { address2: @invoice.address2, address: @invoice.address, city: @invoice.city, client_id: @invoice.client_id, country: @invoice.country, county: @invoice.county, due_date: @invoice.due_date, invoice_number: @invoice.invoice_number, invoice_status_id: @invoice.invoice_status_id, name: @invoice.name, tax_number: @invoice.tax_number }
     end
-
+    refute_equal @invoice.id, Invoice.last.id
+    sample = @invoice.attributes
+    created = Invoice.last.attributes
+    sample.delete_if{|e| ["id", "created_at", "updated_at"].include? e}
+    created.delete_if{|e| ["id", "created_at", "updated_at"].include? e}
+    assert_equal sample, created
     assert_redirected_to invoice_path(assigns(:invoice))
   end
 
