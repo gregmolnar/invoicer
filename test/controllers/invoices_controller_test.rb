@@ -17,8 +17,9 @@ class InvoicesControllerTest < ActionController::TestCase
   end
 
   test "should create invoice" do
-    assert_difference('Invoice.count') do
-      post :create, invoice: { address2: @invoice.address2, address: @invoice.address, city: @invoice.city, client_id: @invoice.client_id, country: @invoice.country, county: @invoice.county, due_date: @invoice.due_date, invoice_number: @invoice.invoice_number, invoice_status_id: @invoice.invoice_status_id, name: @invoice.name, tax_number: @invoice.tax_number }
+    @invoice_item = FactoryGirl.attributes_for(:invoice_item)
+    assert_difference(['Invoice.count', 'Invoice.last.invoice_items.count']) do
+      post :create, invoice: { address2: @invoice.address2, address: @invoice.address, city: @invoice.city, client_id: @invoice.client_id, country: @invoice.country, county: @invoice.county, due_date: @invoice.due_date, invoice_number: @invoice.invoice_number, invoice_status_id: @invoice.invoice_status_id, name: @invoice.name, tax_number: @invoice.tax_number, invoice_items: [$invoice_item] }
     end
     refute_equal @invoice.id, Invoice.last.id
     sample = @invoice.attributes

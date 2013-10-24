@@ -1,6 +1,9 @@
 class Invoice < ActiveRecord::Base
   belongs_to :client
   belongs_to :invoice_status
+  has_many :invoice_items
+
+  accepts_nested_attributes_for :invoice_items, allow_destroy: true
   after_initialize :set_invoice_number
 
   def set_invoice_number
