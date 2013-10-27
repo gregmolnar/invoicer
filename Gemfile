@@ -72,12 +72,14 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 2.3.2'
 gem 'simple-navigation'
 gem 'simple_form'
+gem 'bootstrap-datepicker-rails'
 gem 'inherited_resources'
 gem 'turn', :group => :test
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'quiet_assets'
 end
 
 group :development, :test do

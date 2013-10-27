@@ -1,30 +1,17 @@
-<%= simple_form_for(@invoice, html: {class: 'form-horizontal'}) do |f| %>
+<%= simple_form_for(@invoice, html: {class: 'form-inline'}) do |f| %>
   <%= f.error_notification %>
 
   <div>
-    <fieldset class="form-inline">
-      <div class="row">
-        <div class="col-md-3">
-          <%= f.input :invoice_number %>
-        </div>
-        <div class="col-md-3">
-          <%= f.input :invoice_status, label: 'Status' %>
-        </div>
-        <div class="col-md-6">
-          <%= f.input :due_date %>
-        </div>
-      </div>
-    </fieldset>
     <fieldset>
       <div class="row">
-        <div class="col-md-3">
-          <%= f.label :invoice_number %> <%= f.text_field :invoice_number %>
+        <div class="span3">
+          <%= f.input :invoice_number %>
         </div>
-        <div class="col-md-3">
-          <%= f.label :invoice_status %> <%= f.collection_select :invoice_status, InvoiceStatus.all, :id, :name %>
+        <div class="span3">
+          <%= f.association :invoice_status, label: 'Status' %>
         </div>
-        <div class="col-md-4">
-          <%= f.label :due_date %> <%= f.text_field :due_date %>
+        <div class="span6">
+          <%= f.input :due_date, as: :string, input_html: { data: {behaviour: "datepicker"} } %>
         </div>
       </div>
     </fieldset>
@@ -36,24 +23,24 @@
         <%= f.input :name, as: :hidden %>
       </div>
       <div class="row">
-        <div class="col-md-3">
+        <div class="span3">
           <%= f.input :city %>
         </div>
-        <div class="col-md-3">
+        <div class="span3">
           <%= f.input :address %>
         </div>
-        <div class="col-md-4">
+        <div class="span6">
           <%= f.input :address2 %>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3">
+        <div class="span3">
           <%= f.input :county %>
         </div>
-        <div class="col-md-3">
+        <div class="span3">
           <%= f.input :country, as: :string %>
         </div>
-        <div class="col-md-4">
+        <div class="span6">
           <%= f.input :tax_number %>
         </div>
       </div>
@@ -62,9 +49,24 @@
 
   <fieldset class="form-inline">
     <legend>Items</legend>
-    <%= f.simple_fields_for :invoice_items do |i| %>
-      <%= render 'invoice_item_fields', f: i %>
-    <% end %>
+    <table class="table" id="items">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Tax rate</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= f.simple_fields_for :invoice_items do |i| %>
+          <%= render 'invoice_item_fields', f: i %>
+        <% end %>
+      </tbody>
+    </table>
     <%= link_to_add_fields "Add item", f, :invoice_items %>
     <div class="form-actions">
       <%= f.button :submit %>

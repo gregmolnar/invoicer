@@ -15,5 +15,9 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-dropdown
+//= require bootstrap-datepicker
 //= require typeahead
 //= require_tree .
+$(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker();
+  })

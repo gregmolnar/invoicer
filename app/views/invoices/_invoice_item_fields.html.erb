@@ -1,18 +1,24 @@
-<fieldset class="form-group">
-  <div class="row">
-    <div class="col-md-3">
-      <%= f.text_field :name, placeholder: 'Name' %>
-    </div>
-    <div class="col-md-3">
-      <%= f.text_field :description, placeholder: 'Description' %>
-    </div>
-    <div class="col-md-3">
-      <%= f.label :tax_rate %>
-      <%= f.collection_select :tax_rate, TaxRate.all, :id, :name, class: 'form-control' %>
-    </div>
-    <div class="col-md-3">
-      <%= f.hidden_field :_destroy %>
-      <%= link_to "remove", '#', class: "remove_fields" %>
-    </div>  
-  </div>
-</fieldset>
+<tr>
+  <td>
+    <%= f.text_field :name, placeholder: 'Name', class: 'input-small' %>
+  </td>
+  <td class="span3">
+    <%= f.text_field :description, placeholder: 'Description' %>
+  </td>
+  <td>
+      <%= f.collection_select :tax_rate, TaxRate.all, :id, :name, {}, { class: 'input-small' } %>
+  </td>
+  <td>
+      <%= f.text_field :name, placeholder: 'Quantity', class: 'input-small' %>
+  </td>
+  <td>
+      <%= f.text_field :unit, placeholder: 'Unit', class: 'input-small' %>
+  </td>
+  <td>
+      <%= f.text_field :price, placeholder: 'Price', class: 'input-small' %>
+  </td>
+  <td>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "remove", '#', class: "remove_fields btn btn-mini btn-danger" %>
+  </td>
+</tr>
