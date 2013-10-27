@@ -9,21 +9,18 @@
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Invoicer</a>
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">Invoicer</a>
+      <div class="nav-collapse collapse">
+        <%= render_navigation(expand_all: true) %>
+        <div class="pull-right">
+          <ul class="nav">
+            <li><%= link_to raw('<span class="icon icon-off icon-white"></span> Logout'), destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </div><!--/.nav-collapse -->
     </div>
-    <div class="collapse navbar-collapse">
-      <%= render_navigation(expand_all: true) %>
-      <div class="navbar-right">
-        <ul class="nav navbar-nav">
-          <li><%= link_to raw('<span class="glyphicon glyphicon-off"></span> Logout'), destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </div>
-    </div><!--/.nav-collapse -->
   </div>
 </div>
 <div class="container">
