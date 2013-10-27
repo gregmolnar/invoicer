@@ -1,18 +1,11 @@
 <h1>Listing invoices</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Client</th>
       <th>Invoice number</th>
       <th>Due date</th>
       <th>Name</th>
-      <th>Address</th>
-      <th>Address2</th>
-      <th>City</th>
-      <th>County</th>
-      <th>Country</th>
-      <th>Tax number</th>
       <th>Invoice status</th>
       <th></th>
       <th></th>
@@ -23,20 +16,15 @@
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.client %></td>
         <td><%= invoice.invoice_number %></td>
         <td><%= invoice.due_date %></td>
         <td><%= invoice.name %></td>
-        <td><%= invoice.address %></td>
-        <td><%= invoice.address2 %></td>
-        <td><%= invoice.city %></td>
-        <td><%= invoice.county %></td>
-        <td><%= invoice.country %></td>
-        <td><%= invoice.tax_number %></td>
         <td><%= invoice.invoice_status %></td>
-        <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', invoice, class: 'btn btn-small' %>
+          <%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-small' %>
+          <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Invoice', new_invoice_path %>
+<%= link_to 'New Invoice', new_invoice_path, class: 'btn btn-small' %>
