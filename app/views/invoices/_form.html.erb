@@ -1,22 +1,73 @@
-<%= simple_form_for(@invoice) do |f| %>
+<%= simple_form_for(@invoice, html: {class: 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :client, as: :string %>
-    <%= f.association :client, as: :hidden %>
-    <%= f.input :invoice_number %>
-    <%= f.input :due_date %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :address2 %>
-    <%= f.input :city %>
-    <%= f.input :county %>
-    <%= f.input :country, as: :string %>
-    <%= f.input :tax_number %>
-    <%= f.association :invoice_status %>
+  <div>
+    <fieldset class="form-inline">
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.input :invoice_number %>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :invoice_status, label: 'Status' %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :due_date %>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.label :invoice_number %> <%= f.text_field :invoice_number %>
+        </div>
+        <div class="col-md-3">
+          <%= f.label :invoice_status %> <%= f.collection_select :invoice_status, InvoiceStatus.all, :id, :name %>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :due_date %> <%= f.text_field :due_date %>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Client details</legend>
+      <%= f.input :client, as: :string %>
+      <%= f.association :client, as: :hidden %>
+      <div>
+        <%= f.input :name, as: :hidden %>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.input :city %>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :address %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :address2 %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.input :county %>
+        </div>
+        <div class="col-md-3">
+          <%= f.input :country, as: :string %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :tax_number %>
+        </div>
+      </div>
+    </fieldset>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <fieldset class="form-inline">
+    <legend>Items</legend>
+    <%= f.simple_fields_for :invoice_items do |i| %>
+      <%= render 'invoice_item_fields', f: i %>
+    <% end %>
+    <%= link_to_add_fields "Add item", f, :invoice_items %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  </fieldset>
 <% end %>

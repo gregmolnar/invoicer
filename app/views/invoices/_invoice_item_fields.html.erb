@@ -1,0 +1,18 @@
+<fieldset class="form-group">
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.text_field :name, placeholder: 'Name' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :description, placeholder: 'Description' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :tax_rate %>
+      <%= f.collection_select :tax_rate, TaxRate.all, :id, :name, class: 'form-control' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "remove", '#', class: "remove_fields" %>
+    </div>  
+  </div>
+</fieldset>
