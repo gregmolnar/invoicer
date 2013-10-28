@@ -74,6 +74,9 @@ gem 'simple-navigation'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'inherited_resources'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+
 gem 'turn', :group => :test
 group :development do
   gem 'better_errors'
