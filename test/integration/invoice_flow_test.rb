@@ -25,6 +25,5 @@ class InvoiceFlowTest < ActionDispatch::IntegrationTest
     %w{address address2 city county country tax_number}.each do |n|
         fill_in "invoice_#{n}", with: @client.send(n)
     end
-    
   end
 end

@@ -1,0 +1,51 @@
+<h1>Listing addresses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Business name</th>
+      <th>Address</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>County</th>
+      <th>Country</th>
+      <th>Postcode</th>
+      <th>Phone</th>
+      <th>Fax</th>
+      <th>Mobile</th>
+      <th>Website</th>
+      <th>Email</th>
+      <th>Bank details</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresses.each do |address| %>
+      <tr>
+        <td><%= address.business_name %></td>
+        <td><%= address.address %></td>
+        <td><%= address.address2 %></td>
+        <td><%= address.city %></td>
+        <td><%= address.county %></td>
+        <td><%= address.country %></td>
+        <td><%= address.postcode %></td>
+        <td><%= address.phone %></td>
+        <td><%= address.fax %></td>
+        <td><%= address.mobile %></td>
+        <td><%= address.website %></td>
+        <td><%= address.email %></td>
+        <td><%= address.bank_details %></td>
+        <td><%= link_to 'Show', address %></td>
+        <td><%= link_to 'Edit', edit_address_path(address) %></td>
+        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Address', new_address_path %>
