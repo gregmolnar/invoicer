@@ -14,6 +14,8 @@ $ ->
   $(document).on 'typeahead:selected', (event, data) ->
     $.each data, (i, e) ->
       $("#invoice_#{i}").val(e)
+    $.each data.address, (i, e) ->
+      $("#invoice_#{i}").val(e)
 
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')

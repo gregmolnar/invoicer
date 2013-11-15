@@ -2,18 +2,20 @@
 
 FactoryGirl.define do
   factory :address do
-    business_name "MyString"
-    address "MyString"
-    address2 "MyString"
-    city "MyString"
-    county "MyString"
-    country "MyString"
-    postcode "MyString"
-    phone "MyString"
-    fax "MyString"
-    mobile "MyString"
-    website "MyString"
-    email "MyString"
-    bank_details "MyText"
+    business_name "Test"
+    address "Address"
+    address2 "Address2"
+    city "City"
+    county "County"
+    postcode "Postcode"
+    country "Country"
+    tax_number "Tax_number"
+    phone "Phone"
+    email "Email"
+    bank_details "Bank details"
+  end
+
+  factory :default_address, :parent => :address do
+    default true
   end
 end

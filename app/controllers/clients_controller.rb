@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
   inherit_resources
 
   def index
-    super do 
+    super do
       @clients = @clients.where("name like ?", "%#{params[:q]}%")
     end
   end

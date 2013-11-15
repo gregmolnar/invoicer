@@ -4,6 +4,7 @@ class InvoiceFlowTest < ActionDispatch::IntegrationTest
   setup do
     Capybara.current_driver = Capybara.javascript_driver
     @client = FactoryGirl.create(:client)
+    @client.addresses.create(FactoryGirl.attributes_for(:default_address))
   end
 
   test "autofill works" do
@@ -14,7 +15,6 @@ class InvoiceFlowTest < ActionDispatch::IntegrationTest
     suggestion = page.find('span.tt-suggestions')
     assert_equal "Test", suggestion.text
     suggestion.click
-    assert_equal "Test", page.find("#invoice_name").value
     %w{address address2 city county country tax_number}.each do |n|
         assert_equal n.capitalize, page.find("#invoice_#{n}").value
     end

@@ -1,10 +1,11 @@
 Invoicer::Application.routes.draw do
-  resources :addresses
 
   resources :tax_rates
   resources :invoices
   resources :invoice_statuses
-  resources :clients
+  resources :clients do
+    resources :addresses  
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

@@ -17,8 +17,6 @@
       <th>Email</th>
       <th>Bank details</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -38,9 +36,11 @@
         <td><%= address.website %></td>
         <td><%= address.email %></td>
         <td><%= address.bank_details %></td>
-        <td><%= link_to 'Show', address %></td>
-        <td><%= link_to 'Edit', edit_address_path(address) %></td>
-        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', client_address_path(@client, address) %>
+          <%= link_to 'Edit', edit_client_address_path(@client, address) %></td>
+          <%= link_to 'Destroy', client_address_path(@client, address), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -48,4 +48,4 @@
 
 <br>
 
-<%= link_to 'New Address', new_address_path %>
+<%= link_to 'New Address', new_client_address_path(@client) %>

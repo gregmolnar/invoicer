@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20131028081846) do
 
   create_table "addresses", force: true do |t|
+    t.integer  "client_id"
     t.string   "business_name"
     t.string   "address"
     t.string   "address2"
@@ -27,6 +28,8 @@ ActiveRecord::Schema.define(version: 20131028081846) do
     t.string   "website"
     t.string   "email"
     t.text     "bank_details"
+    t.string   "tax_number"
+    t.boolean  "default",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

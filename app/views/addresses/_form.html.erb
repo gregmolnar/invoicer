@@ -1,7 +1,8 @@
-<%= simple_form_for(@address) do |f| %>
+<%= simple_form_for([@client, @address]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :default %>
     <%= f.input :business_name %>
     <%= f.input :address %>
     <%= f.input :address2 %>
@@ -14,6 +15,7 @@
     <%= f.input :mobile %>
     <%= f.input :website %>
     <%= f.input :email %>
+    <%= f.input :tax_number %>
     <%= f.input :bank_details %>
   </div>
 

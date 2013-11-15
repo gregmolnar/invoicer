@@ -30,10 +30,10 @@ class InvoicesControllerTest < ActionController::TestCase
     assert_redirected_to invoice_path(assigns(:invoice))
   end
 
-  test "should show invoice" do
-    get :show, id: @invoice
-    assert_response :success
-  end
+  # test "should show invoice" do
+  #   get :show, id: @invoice
+  #   assert_response :success
+  # end
 
   test "should get edit" do
     get :edit, id: @invoice

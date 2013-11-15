@@ -15,7 +15,8 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :website
       t.string :email
       t.text :bank_details
-
+      t.string :tax_number
+      t.boolean :default, default: false
       t.timestamps
     end
   end
