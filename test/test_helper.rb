@@ -54,3 +54,18 @@ end
 # Forces all threads to share the same connection. This works on
 # Capybara because it starts the web server in a thread.
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
+Turn.config do |c|
+  # use one of output formats:
+  # :outline  - turn's original case/test outline mode [default]
+  # :progress - indicates progress with progress bar
+  # :dotted   - test/unit's traditional dot-progress mode
+  # :pretty   - new pretty reporter
+  # :marshal  - dump output as YAML (normal run mode only)
+  # :cue      - interactive testing
+  c.format  = :outline
+  # turn on invoke/execute tracing, enable full backtrace
+  c.trace   = false
+  # use humanized test names (works only with :outline format)
+  c.natural = true
+end
