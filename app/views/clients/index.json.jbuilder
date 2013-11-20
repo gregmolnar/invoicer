@@ -1,5 +1,5 @@
 json.array!(@clients) do |client|
-  json.extract! client, :name
+  json.extract! client, :id, :name
   json.url client_url(client, format: :json)
 
   json.address do

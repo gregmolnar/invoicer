@@ -12,6 +12,7 @@ $ ->
     }
   ]
   $(document).on 'typeahead:selected', (event, data) ->
+    $('#invoice_client_id').val(data.id)
     $.each data, (i, e) ->
       $("#invoice_#{i}").val(e)
     $.each data.address, (i, e) ->

@@ -10,17 +10,19 @@
         <div class="span3">
           <%= f.association :invoice_status, label: 'Status' %>
         </div>
-        <div class="span6">
+        <div class="span3">
+          <%= f.input :date, as: :string, input_html: { data: {behaviour: "datepicker"} } %>
+        </div>
+        <div class="span3">
           <%= f.input :due_date, as: :string, input_html: { data: {behaviour: "datepicker"} } %>
         </div>
       </div>
     </fieldset>
     <fieldset>
       <legend>Client details</legend>
-      <%= f.input :client, as: :string %>
-      <%= f.association :client, as: :hidden %>
+      <%= f.input :name, as: :string %>
       <div>
-        <%= f.input :name, as: :hidden %>
+        <%= f.input :client_id, as: :hidden %>
       </div>
       <div class="row">
         <div class="span3">
