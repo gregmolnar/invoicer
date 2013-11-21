@@ -26,3 +26,5 @@ module Invoicer
     # config.i18n.default_locale = :de
   end
 end
+
+Date::DATE_FORMATS[:default] = '%d/%m/%Y'

@@ -12,12 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-dropdown
 //= require bootstrap-datepicker
 //= require typeahead
+//= require jquery.livequery
 //= require_tree .
 $(document).ready(function(){
-    $('[data-behaviour~=datepicker]').datepicker();
-  })
+  $('[data-behaviour~=datepicker]').datepicker({autoclose: true, format: 'dd/mm/yyyy'});
+})

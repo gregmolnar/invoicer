@@ -1,5 +1,6 @@
 Invoicer::Application.routes.draw do
 
+  get 'invoice_items' => 'invoice_items#index'
   resources :tax_rates
   resources :invoices
   resources :invoice_statuses

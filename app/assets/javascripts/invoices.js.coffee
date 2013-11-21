@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $('#invoice_client').typeahead [
+  $('#invoice_name').typeahead [
     {
       name: 'name'
       remote: {
@@ -11,12 +11,24 @@ $ ->
       valueKey: 'name'
     }
   ]
+  $('.invoice-item-name').livequery (event) ->
+    $(this).autocomplete
+      source: "/invoice_items.json",
+      minLength: 2,
+      select: ( event, ui ) ->
+        tbody = $(event.target).closest('tbody')
+        $.each ui.item, (i, e) ->
+          tbody.find("input[name$='[#{i}]']").val(e)
+
   $(document).on 'typeahead:selected', (event, data) ->
-    $('#invoice_client_id').val(data.id)
-    $.each data, (i, e) ->
-      $("#invoice_#{i}").val(e)
-    $.each data.address, (i, e) ->
-      $("#invoice_#{i}").val(e)
+    if event.target.attr('id') == 'invoice_name'
+      $('#invoice_client_id').val(data.id)
+      $.each data, (i, e) ->
+        $("#invoice_#{i}").val(e)
+      $.each data.address, (i, e) ->
+        $("#invoice_#{i}").val(e)
+    else
+
 
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
