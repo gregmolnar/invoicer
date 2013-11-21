@@ -64,7 +64,7 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -84,6 +84,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'quiet_assets'
+  gem 'rvm-capistrano'
+  gem 'capistrano', '~> 2.15.x', group: :development
 end
 
 group :development, :test do
