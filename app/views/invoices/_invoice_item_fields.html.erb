@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= f.text_field :name, placeholder: 'Name', class: 'input-small' %>
+    <%= f.text_field :name, placeholder: 'Name', class: 'input-small invoice-item-name' %>
   </td>
   <td class="span3">
     <%= f.text_field :description, placeholder: 'Description' %>
@@ -9,7 +9,7 @@
       <%= f.collection_select :tax_rate, TaxRate.all, :id, :name, {}, { class: 'input-small' } %>
   </td>
   <td>
-      <%= f.text_field :name, placeholder: 'Quantity', class: 'input-small' %>
+      <%= f.text_field :quantity, placeholder: 'Quantity', class: 'input-small' %>
   </td>
   <td>
       <%= f.text_field :unit, placeholder: 'Unit', class: 'input-small' %>
