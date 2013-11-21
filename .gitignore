@@ -15,7 +15,6 @@
 /log/*.log
 /tmp
 config/database.yml
-Gemfile.lock
 sandi_meter
 config/deploy.rb
 config/puma.rb
