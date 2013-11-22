@@ -40,7 +40,7 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
+gem 'puma'
 
 
 # Use debugger
