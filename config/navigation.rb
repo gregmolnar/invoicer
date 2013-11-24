@@ -58,13 +58,14 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     primary.item :invoices, 'Invoices <b class="caret"></b>', '#', class: 'dropdown',  :link => {:class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} do |sub_nav|
-      sub_nav.item :clients, 'List', invoices_path
-      sub_nav.item :create_client, 'Create', new_invoice_path
+      sub_nav.item :invoices, 'List', invoices_path
+      sub_nav.item :create_invoice, 'Create', new_invoice_path
       sub_nav.dom_class = 'dropdown-menu'
     end
 
-    primary.item :invoices, 'Settings <b class="caret"></b>', '#', class: 'dropdown',  :link => {:class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} do |sub_nav|
-      sub_nav.item :clients, 'Tax rates', tax_rates_path
+    primary.item :settings, 'Settings <b class="caret"></b>', '#', class: 'dropdown',  :link => {:class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} do |sub_nav|
+      sub_nav.item :account, 'Account', edit_user_path(current_user)
+      sub_nav.item :tax_rates, 'Tax rates', tax_rates_path
       sub_nav.dom_class = 'dropdown-menu'
     end
 
