@@ -21,7 +21,7 @@ $ ->
           tbody.find("input[name$='[#{i}]']").val(e)
 
   $(document).on 'typeahead:selected', (event, data) ->
-    if event.target.attr('id') == 'invoice_name'
+    if $(event.target).attr('id') == 'invoice_name'
       $('#invoice_client_id').val(data.id)
       $.each data, (i, e) ->
         $("#invoice_#{i}").val(e)
