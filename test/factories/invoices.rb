@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :invoice do
-    client nil
+    client { FactoryGirl.create(:client) }
     invoice_number "MyString"
     due_date "2013-09-30"
+    date "2013-09-30"
     name "MyString"
     address "MyString"
     address2 "MyString"
