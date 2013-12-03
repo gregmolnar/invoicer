@@ -5,7 +5,7 @@
     <tr>
       <th>Invoice number</th>
       <th>Due date</th>
-      <th>Name</th>
+      <th>Client</th>
       <th>Invoice status</th>
       <th></th>
       <th></th>
@@ -19,7 +19,7 @@
         <td><%= invoice.invoice_number %></td>
         <td><%= invoice.due_date %></td>
         <td><%= invoice.name %></td>
-        <td><%= invoice.invoice_status %></td>
+        <td><%= invoice.invoice_status.name %></td>
         <td>
           <%= link_to 'Show', invoice_path(invoice, format: :pdf), class: 'btn btn-small' %>
           <%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-small' %>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Invoice', new_invoice_path, class: 'btn btn-small' %>
+<%= link_to 'New Invoice', new_invoice_path, class: 'btn btn-small btn-primary' %>
