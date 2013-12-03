@@ -1,7 +1,7 @@
 class CreateAddresses < ActiveRecord::Migration
   def change
     create_table :addresses do |t|
-      t.belongs_to :client
+      t.belongs_to :client, index: true
       t.string :business_name
       t.string :address
       t.string :address2

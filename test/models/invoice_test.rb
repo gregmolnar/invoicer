@@ -6,7 +6,7 @@ class InvoiceTest < ActiveSupport::TestCase
     assert_equal 1, invoice.invoice_number
   end
 
-  test "it should exract the number an increment from invoice number" do
+  test "it should extract the number and increment from invoice number" do
     Invoice.create!(FactoryGirl.attributes_for(:invoice).merge(invoice_number: 'PN28'))
     invoice = Invoice.new
     assert_equal "PN29", invoice.invoice_number
