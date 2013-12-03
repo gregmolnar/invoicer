@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :invoice do
     client { FactoryGirl.create(:client) }
+    invoice_status { FactoryGirl.create(:invoice_status) }
     invoice_number "MyString"
     due_date "2013-09-30"
     date "2013-09-30"
@@ -13,6 +14,5 @@ FactoryGirl.define do
     county "MyString"
     country "MyString"
     tax_number "MyString"
-    invoice_status nil
   end
 end

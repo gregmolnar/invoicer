@@ -9,8 +9,8 @@ class InvoiceFlowTest < ActionDispatch::IntegrationTest
 
   test "autofill works" do
     visit new_invoice_path
-    field = 'invoice_client'
-    fill_in('invoice_client', with: 'Test')
+    field = 'invoice_name'
+    fill_in('invoice_name', with: 'Test')
     page.execute_script %Q{ $('##{field}').trigger("focus") }
     suggestion = page.find('span.tt-suggestions')
     assert_equal "Test", suggestion.text
@@ -23,7 +23,7 @@ class InvoiceFlowTest < ActionDispatch::IntegrationTest
   test "it should allow to add invoice items" do
     visit new_invoice_path
     %w{address address2 city county country tax_number}.each do |n|
-        fill_in "invoice_#{n}", with: @client.send(n)
+        fill_in "invoice_#{n}", with: @client.addresses.first.send(n)
     end
   end
 end
