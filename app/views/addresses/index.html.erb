@@ -37,9 +37,9 @@
         <td><%= address.email %></td>
         <td><%= address.bank_details %></td>
         <td>
-          <%= link_to 'Show', client_address_path(@client, address) %>
-          <%= link_to 'Edit', edit_client_address_path(@client, address) %></td>
-          <%= link_to 'Destroy', client_address_path(@client, address), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Show', resource_path(parent, address) %>
+          <%= link_to 'Edit', edit_resource_path_path(parent, address) %></td>
+          <%= link_to 'Destroy', resource_path(parent, address), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
@@ -47,5 +47,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Address', new_client_address_path(@client) %>
+<%= link_to 'New Address', new_resource_url(parent) %>
