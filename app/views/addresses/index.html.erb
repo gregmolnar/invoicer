@@ -10,12 +10,6 @@
       <th>County</th>
       <th>Country</th>
       <th>Postcode</th>
-      <th>Phone</th>
-      <th>Fax</th>
-      <th>Mobile</th>
-      <th>Website</th>
-      <th>Email</th>
-      <th>Bank details</th>
       <th></th>
     </tr>
   </thead>
@@ -30,15 +24,9 @@
         <td><%= address.county %></td>
         <td><%= address.country %></td>
         <td><%= address.postcode %></td>
-        <td><%= address.phone %></td>
-        <td><%= address.fax %></td>
-        <td><%= address.mobile %></td>
-        <td><%= address.website %></td>
-        <td><%= address.email %></td>
-        <td><%= address.bank_details %></td>
         <td>
           <%= link_to 'Show', resource_path(parent, address) %>
-          <%= link_to 'Edit', edit_resource_path_path(parent, address) %></td>
+          <%= link_to 'Edit', edit_resource_path(parent, address) %>
           <%= link_to 'Destroy', resource_path(parent, address), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
