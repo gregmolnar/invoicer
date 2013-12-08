@@ -3,16 +3,16 @@
     <div class="span6">
       <h1><%= @invoice.user_address.business_name %></h1>
       <%== @address.join('<br />') %>
-      <p>
-        <strong>Bank details:</strong><br />
-        <%== @invoice.user_address.bank_details.gsub("\n", "<br />") %>
+      <br />
+      <strong>Bank account:</strong><br />
+      <%== @invoice.user_address.bank_details.gsub("\n", "<br />") %>
       </p>
     </div>
     <div class="span3 offset3">
       <h1>Invoice <%= @invoice.invoice_number %></h1>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="bill-to">
     <div class="span6">
       <strong>Bill to:</strong><br />
       <%== @bill_to.join('<br />') %>
@@ -29,10 +29,47 @@
         </tr>
         <tr>
           <td><strong>Amount Due:</strong></td>
-          <td align="right"><%= number_to_currency(@invoice.total, unit: "£") %></td>
+          <td align="right"><%= number_to_currency(@invoice.total) %></td>
         </tr>
       </table>
     </div>
   </div>
-
+  <table class="table" id="items">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Unit</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invoice.invoice_items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.unit %></td>
+        <td><%= number_to_currency(item.price) %></td>
+        <td><%= number_to_currency(item.price * item.quantity) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="span4 offset8 text-right">
+      <table class="table">
+        <tr>
+          <td>Total:</td>
+          <td>£450.00</td>
+        </tr>
+        <tr>
+          <td>Balance:</td>
+          <td>£450.00</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
