@@ -11,4 +11,13 @@ class InvoiceTest < ActiveSupport::TestCase
     invoice = Invoice.new
     assert_equal "PN29", invoice.invoice_number
   end
+
+  test "it calculates the correct total" do
+    invoice = FactoryGirl.create(:invoice)
+    item_attributes = FactoryGirl.attributes_for(:invoice_item)
+    invoice.invoice_items<< InvoiceItem.create(item_attributes.merge(price: 100, quantity: 2))
+    assert_equal 200, invoice.total
+    invoice.invoice_items<< InvoiceItem.create(item_attributes.merge(price: 100, quantity: 2))
+    assert_equal 400, invoice.total
+  end
 end

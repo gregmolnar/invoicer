@@ -16,4 +16,12 @@ class Invoice < ActiveRecord::Base
       self.invoice_number = prev.invoice_number.gsub(/\d+/){|m| m.to_i+1}
     end
   end
+
+  def total
+    total = 0
+    invoice_items.each do |item|
+      total += item.price * item.quantity
+    end
+    total
+  end
 end

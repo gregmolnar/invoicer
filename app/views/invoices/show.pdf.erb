@@ -18,8 +18,20 @@
       <%== @bill_to.join('<br />') %>
     </div>
     <div class="span3 offset3">
-      <strong>Invoice Date:</strong><%= @invoice.date %><br />
-      <strong>Due Date:</strong><%= @invoice.due_date %><br />
+      <table>
+        <tr>
+          <td><strong>Invoice Date:</strong></td>
+          <td align="right"><%= @invoice.date %></td>
+        </tr>
+        <tr>
+          <td><strong>Due Date:</strong></td>
+          <td align="right"><%= @invoice.due_date %></td>
+        </tr>
+        <tr>
+          <td><strong>Amount Due:</strong></td>
+          <td align="right"><%= number_to_currency(@invoice.total, unit: "£") %></td>
+        </tr>
+      </table>
     </div>
   </div>
 

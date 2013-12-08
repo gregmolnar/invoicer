@@ -14,5 +14,6 @@ FactoryGirl.define do
     county "MyString"
     country "MyString"
     tax_number "MyString"
+    user_address { FactoryGirl.create(:address) }
   end
 end
