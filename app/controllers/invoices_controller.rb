@@ -10,7 +10,17 @@ class InvoicesController < ApplicationController
 
   def show
     super do |format|
-      format.pdf { render :pdf => "invoice##{@invoice.invoice_number}"  }
+      @address = []
+      [:address, :address2, :city, :county, :country, :postcode, :phone, :fax, :mobile, :website].each do |field|
+        value = @invoice.user_address.send(field)
+        @address<< value unless value.blank?
+      end
+      @bill_to = []
+      [:name, :address, :address2, :city, :county, :country, :postcode].each do |field|
+        value = @invoice.send(field)
+        @bill_to<< value unless value.blank?
+      end
+      format.pdf { render pdf: "invoice##{@invoice.invoice_number}", layout: 'pdf.html' }
     end
   end
 
