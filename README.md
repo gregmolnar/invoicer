@@ -1,5 +1,6 @@
 # README
 [![Build Status](https://travis-ci.org/gregmolnar/invoicer.png)](https://travis-ci.org/gregmolnar/invoicer) [![Code Climate](https://codeclimate.com/github/gregmolnar/invoicer.png)](https://codeclimate.com/github/gregmolnar/invoicer)
+[![Dependency Status](https://gemnasium.com/gregmolnar/invoicer.png)](https://gemnasium.com/gregmolnar/invoicer)
 
 A simple invoicing tool for freelancers built with Rails 4.
 
