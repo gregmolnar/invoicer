@@ -24,8 +24,8 @@ class InvoicesControllerTest < ActionController::TestCase
     refute_equal @invoice.id, Invoice.last.id
     sample = @invoice.attributes
     created = Invoice.last.attributes
-    sample.delete_if{|e| ["id", "created_at", "updated_at"].include? e}
-    created.delete_if{|e| ["id", "created_at", "updated_at"].include? e}
+    sample.delete_if{|e| ["id", "created_at", "updated_at", "address_id"].include? e}
+    created.delete_if{|e| ["id", "created_at", "updated_at", "address_id"].include? e}
     assert_equal sample, created
     assert_redirected_to invoice_path(assigns(:invoice))
   end

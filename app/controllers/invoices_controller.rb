@@ -2,6 +2,11 @@ class InvoicesController < ApplicationController
   inherit_resources
   respond_to :pdf, only: :show
 
+  def new
+    @invoice = Invoice.new
+    super
+  end
+
   def create
     @invoice = Invoice.new(permitted_params)
     @invoice.user_address = current_user.default_address
@@ -26,6 +31,6 @@ class InvoicesController < ApplicationController
 
   private
     def permitted_params
-      params.permit([:date, :client_id, :invoice_number, :due_date ,:name ,:address ,:address2 ,:city ,:county ,:country ,:tax_number, :invoice_status_id, :invoice_items_attributes => [:name, :description, :tax_rate_id, :quantity, :unit, :price, :_destroy, :id], :invoice_items => [:name, :description, :tax_rate_id, :quantity, :unit, :price, :_destroy]])
+      params.require(:invoice).permit([:date, :client_id, :invoice_number, :due_date ,:name ,:address ,:address2 ,:city ,:county ,:country ,:tax_number, :invoice_status_id, :invoice_items_attributes => [:name, :description, :tax_rate_id, :quantity, :unit, :price, :_destroy, :id], :invoice_items => [:name, :description, :tax_rate_id, :quantity, :unit, :price, :_destroy]])
     end
 end
