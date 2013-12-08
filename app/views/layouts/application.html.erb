@@ -16,7 +16,7 @@
         <%= render_navigation(expand_all: true) %>
         <div class="pull-right">
           <ul class="nav">
-            <li><%= link_to raw('<span class="icon icon-off icon-white"></span> Logout'), destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to(raw('<span class="icon icon-off icon-white"></span> Logout'), destroy_user_session_path, method: :delete) if user_signed_in? %></li>
           </ul>
         </div>
       </div><!--/.nav-collapse -->
