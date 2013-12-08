@@ -2,9 +2,10 @@ class Invoice < ActiveRecord::Base
   belongs_to :client
   belongs_to :invoice_status
   has_many :invoice_items
-  validates_presence_of :client_id, :date, :due_date, :invoice_number
+  validates_presence_of :client_id, :date, :due_date, :invoice_number, :user_address
   accepts_nested_attributes_for :invoice_items, allow_destroy: true
   after_initialize :set_invoice_number
+  belongs_to :user_address, class_name: Address, foreign_key: :address_id
 
   def set_invoice_number
     return unless self.new_record?
