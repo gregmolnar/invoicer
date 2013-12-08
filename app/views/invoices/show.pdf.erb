@@ -49,7 +49,7 @@
       <% @invoice.invoice_items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
-        <td><%= item.name %></td>
+        <td><%= item.description %></td>
         <td><%= item.quantity %></td>
         <td><%= item.unit %></td>
         <td><%= number_to_currency(item.price) %></td>
@@ -63,11 +63,11 @@
       <table class="table">
         <tr>
           <td>Total:</td>
-          <td>£450.00</td>
+          <td><%= number_to_currency @invoice.total %></td>
         </tr>
         <tr>
           <td>Balance:</td>
-          <td>£450.00</td>
+          <td><%= number_to_currency @invoice.total %></td>
         </tr>
       </table>
     </div>
