@@ -18,12 +18,12 @@ class InvoicesControllerTest < ActionController::TestCase
 
   test "should create invoice" do
     @invoice_item = FactoryGirl.attributes_for(:invoice_item)
-    assert_difference(['Invoice.count', 'Invoice.last.invoice_items.count']) do
+    assert_difference(['Invoice.count', 'Invoice.unscoped.last.invoice_items.count']) do
       post :create, invoice: { client_id: @invoice.client.id, address2: @invoice.address2, address: @invoice.address, city: @invoice.city, client_id: @invoice.client_id, country: @invoice.country, county: @invoice.county, due_date: @invoice.due_date, invoice_number: @invoice.invoice_number, invoice_status_id: @invoice.invoice_status_id, name: @invoice.name, tax_number: @invoice.tax_number, date: @invoice.date, invoice_items_attributes: [@invoice_item] }
     end
-    refute_equal @invoice.id, Invoice.last.id
+    refute_equal @invoice.id, Invoice.unscoped.last.id
     sample = @invoice.attributes
-    created = Invoice.last.attributes
+    created = Invoice.unscoped.last.attributes
     sample.delete_if{|e| ["id", "created_at", "updated_at", "address_id"].include? e}
     created.delete_if{|e| ["id", "created_at", "updated_at", "address_id"].include? e}
     assert_equal sample, created
