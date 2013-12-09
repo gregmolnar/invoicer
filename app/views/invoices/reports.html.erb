@@ -1,0 +1,51 @@
+<h1>Search</h1>
+<%= search_form_for @q, url: reports_invoices_path do |f| %>
+  <div class="row">
+    <div class="span3">
+      <%= f.label :date_gteq %>
+      <%= f.text_field :date_gteq, { data: {behaviour: "datepicker"} } %>
+    </div>
+    <div class="span3">
+      <%= f.label :date_lteq %>
+      <%= f.text_field :date_lteq, { data: {behaviour: "datepicker"} } %>
+    </div>
+  </div>
+  <%= f.submit 'Search', class: 'btn btn-primary' %>
+<% end %>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Invoice number</th>
+      <th>Due date</th>
+      <th>Client</th>
+      <th>Invoice status</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.invoice_number %></td>
+        <td><%= invoice.due_date %></td>
+        <td><%= invoice.name %></td>
+        <td><%= invoice.invoice_status.name %></td>
+        <td><%= number_to_currency invoice.total %></td>
+        <td>
+          <%= link_to 'Show', invoice_path(invoice, format: :pdf), class: 'btn btn-small' %>
+          <%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-small' %>
+          <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+        <td colspan="4"></td>
+        <td><%= number_to_currency @invoices.collect{|a| a.total}.sum %></td>
+        <td>
+        </td>
+      </tr>
+  </tbody>
+</table>

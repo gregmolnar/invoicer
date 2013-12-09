@@ -2,6 +2,11 @@ class InvoicesController < ApplicationController
   inherit_resources
   respond_to :pdf, only: :show
 
+  def reports
+    @q = Invoice.search(params[:q])
+    @invoices = @q.result(distinct: true)
+  end
+
   def new
     @invoice = Invoice.new
     super

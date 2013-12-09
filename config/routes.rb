@@ -2,7 +2,11 @@ Invoicer::Application.routes.draw do
 
   get 'invoice_items' => 'invoice_items#index'
   resources :tax_rates
-  resources :invoices
+  resources :invoices do
+    collection do
+      get 'reports'
+    end
+  end
   resources :invoice_statuses
   resources :clients do
     resources :addresses

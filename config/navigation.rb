@@ -60,6 +60,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :invoices, 'Invoices <b class="caret"></b>', '#', class: 'dropdown', if: -> { current_user }, :link => {:class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} do |sub_nav|
       sub_nav.item :invoices, 'List', invoices_path
       sub_nav.item :create_invoice, 'Create', new_invoice_path
+      sub_nav.item :reports, 'Reports', reports_invoices_path
       sub_nav.dom_class = 'dropdown-menu'
     end
 

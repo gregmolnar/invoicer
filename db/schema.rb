@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20131208150124) do
     t.integer  "user_id"
   end
 
+  add_index "addresses", ["client_id"], name: "index_addresses_on_client_id", using: :btree
+
   create_table "clients", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
