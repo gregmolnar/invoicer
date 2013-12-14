@@ -8,6 +8,8 @@ class Invoice < ActiveRecord::Base
   belongs_to :user_address, class_name: Address, foreign_key: :address_id
   default_scope { order('"date" desc') }
 
+  before_save :set_total
+
   def set_invoice_number
     return unless self.new_record?
     prev = Invoice.order('created_at desc').first
@@ -18,11 +20,11 @@ class Invoice < ActiveRecord::Base
     end
   end
 
-  def total
-    total = 0
+  def set_total
+    @total = 0
     invoice_items.each do |item|
-      total += item.price * item.quantity
+      @total += item.price * item.quantity
     end
-    total
+    self.total = @total
   end
 end
