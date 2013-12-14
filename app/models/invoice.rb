@@ -21,10 +21,10 @@ class Invoice < ActiveRecord::Base
   end
 
   def set_total
-    @total = 0
-    invoice_items.each do |item|
-      @total += item.price * item.quantity
+    total = 0
+    invoice_items.to_a.each do |item|
+      total += item.price * item.quantity
     end
-    self.total = @total
+    self.total = total
   end
 end

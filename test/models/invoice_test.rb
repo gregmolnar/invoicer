@@ -15,9 +15,12 @@ class InvoiceTest < ActiveSupport::TestCase
   test "it calculates the correct total" do
     invoice = FactoryGirl.create(:invoice)
     item_attributes = FactoryGirl.attributes_for(:invoice_item)
-    invoice.invoice_items<< InvoiceItem.create(item_attributes.merge(price: 100, quantity: 2))
+    item = InvoiceItem.create!(item_attributes.merge(price: 100, quantity: 2))
+    invoice.invoice_items<< item
+    invoice.save
     assert_equal 200, invoice.total
-    invoice.invoice_items<< InvoiceItem.create(item_attributes.merge(price: 100, quantity: 2))
-    assert_equal 400, invoice.total
+    invoice.invoice_items<< InvoiceItem.create!(item_attributes.merge(price: 100, quantity: 2))
+    invoice.save!
+    assert_equal 400, invoice.reload.total
   end
 end
