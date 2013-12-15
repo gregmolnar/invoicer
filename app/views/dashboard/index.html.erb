@@ -1,2 +1,5 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1>Dashboard</h1>
+<h2>Income last 12 months</h2>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% chart_data = Invoice.unscoped.where(date: 12.months.ago...Time.now).group_by_month(:date).limit(12).sum(:total) %>
+<%= line_chart chart_data %>
