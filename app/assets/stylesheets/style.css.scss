@@ -17,7 +17,7 @@ $dropdownLinkColorActive:       $white !default;
 
 $dropdownLinkBackgroundActive:  $navbarInverseBackgroundHighlight !default;
 $dropdownLinkBackgroundHover:   $dropdownLinkBackgroundActive !default;
-// $grayDark: #369BD7;
+
 @import "bootstrap";
 @mixin border-radius($radius){
   @include border-top-radius($radius);

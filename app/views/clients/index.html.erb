@@ -1,6 +1,6 @@
 <h1>Listing clients</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,10 +12,10 @@
       <tr>
         <td><%= client.name %></td>
         <td>
-          <%= link_to 'Addresses', client_addresses_path(client) %>
-          <%= link_to 'Show', client %>
-          <%= link_to 'Edit', edit_client_path(client) %>
-          <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Addresses', client_addresses_path(client), class: 'btn btn-small' %>
+          <%= link_to 'Show', client, class: 'btn btn-small' %>
+          <%= link_to 'Edit', edit_client_path(client), class: 'btn btn-small' %>
+          <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Client', new_client_path %>
+<%= link_to 'New Client', new_client_path, class: 'btn btn-small btn-primary' %>

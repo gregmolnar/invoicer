@@ -1,6 +1,6 @@
 <h1>Listing addresses</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Business name</th>
@@ -25,9 +25,8 @@
         <td><%= address.country %></td>
         <td><%= address.postcode %></td>
         <td>
-          <%= link_to 'Show', resource_path(address) %>
-          <%= link_to 'Edit', edit_resource_path(address) %>
-          <%= link_to 'Destroy', resource_path(address), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Show', resource_path(address), class: 'btn btn-small' %>
+          <%= link_to 'Destroy', resource_path(address), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -35,4 +34,4 @@
 </table>
 
 <br>
-<%= link_to 'New Address', new_resource_url %>
+<%= link_to 'New Address', new_resource_url, class: 'btn btn-small btn-primary' %>
