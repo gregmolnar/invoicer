@@ -49,3 +49,6 @@
       </tr>
   </tbody>
 </table>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% chart_data = @invoices.group_by_month(:date).sum(:total) %>
+<%= line_chart chart_data %>

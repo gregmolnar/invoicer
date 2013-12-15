@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
   respond_to :pdf, only: :show
 
   def reports
-    @q = Invoice.search(params[:q])
+    @q = Invoice.unscoped.search(params[:q])
     @invoices = @q.result(distinct: true)
   end
 
