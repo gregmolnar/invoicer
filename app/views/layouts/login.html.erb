@@ -3,23 +3,9 @@
 <head>
   <%= wicked_pdf_stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
 </head>
-<body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="#">Invoicer</a>
-      <div class="nav-collapse collapse">
-        <%= render_navigation(expand_all: true) %>
-        <div class="pull-right">
-          <ul class="nav">
-          </ul>
-        </div>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-</div>
-<div class="container">
-  <%= yield %>
-</div>
+<body class="login">
+  <div class="container">
+    <%= yield %>
+  </div> <!-- /container -->
 </body>
 </html>
