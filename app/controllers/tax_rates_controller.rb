@@ -3,6 +3,6 @@ class TaxRatesController < ApplicationController
 
   private
   def permitted_params
-    params.permit(:tax_rate => [:name, :percentage])
+    params.permit(:tax_rate => [:name, :percent])
   end
 end
