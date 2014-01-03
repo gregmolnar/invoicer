@@ -1,6 +1,10 @@
 Invoicer::Application.routes.draw do
 
-  resources :expenses
+  resources :expenses do
+    member do
+      get 'file'
+    end
+  end
 
   get 'invoice_items' => 'invoice_items#index'
   resources :tax_rates

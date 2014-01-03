@@ -56,7 +56,7 @@ gem 'wicked_pdf'
 gem "ransack"
 gem "chartkick"
 gem 'groupdate'
-
+gem "paperclip", "~> 3.0"
 gem 'turn', :group => :test
 group :development do
   gem 'better_errors'

@@ -21,7 +21,7 @@ class ExpensesControllerTest < ActionController::TestCase
     assert_difference('Expense.count') do
       post :create, expense: { amount: @expense.amount, date: @expense.date, name: @expense.name }
     end
-
+    refute_nil Expense.last.file
     assert_redirected_to expense_path(assigns(:expense))
   end
 

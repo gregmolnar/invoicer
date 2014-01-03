@@ -14,6 +14,11 @@
   <strong>Amount:</strong>
   <%= @expense.amount %>
 </p>
-
+<% unless @expense.file.nil? %>
+<p>
+  <strong>File:</strong>
+  <%= link_to @expense.file_file_name, file_expense_path(@expense.id) %>
+</p>
+<% end %>
 <%= link_to 'Edit', edit_expense_path(@expense) %> |
 <%= link_to 'Back', expenses_path %>
