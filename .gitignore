@@ -18,5 +18,3 @@ config/database.yml
 sandi_meter
 config/deploy.rb
 config/puma.rb
-bin/
-
