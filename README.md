@@ -20,8 +20,7 @@ A simple invoicing tool for freelancers built with Rails 4.
   where you'll want to start from.
 1. Write a test for the feature you are about to add
 1. Run the tests
-1. Turn the Issue into a Pull Request. There are several ways to do this, but
-  [hub](https://github.com/defunkt/hub) is probably the easiest.
+1. Send a Pull Request.
 
 If you don't know how to fix something, even just a Pull Request that includes a
 failing test can be helpful. If in doubt, make an Issue to discuss.
