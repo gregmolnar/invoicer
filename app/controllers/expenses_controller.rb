@@ -8,6 +8,6 @@ class ExpensesController < ApplicationController
 
   private
   def permitted_params
-    params.permit(expense: [:name, :date, :amount, :file])
+    params.permit(expense: [:name, :date, :amount, :file, :note])
   end
 end
