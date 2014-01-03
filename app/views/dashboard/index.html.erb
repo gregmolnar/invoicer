@@ -3,3 +3,7 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <% chart_data = Invoice.unscoped.where(date: 12.months.ago...Time.now).group_by_month(:date).limit(12).sum(:total) %>
 <%= line_chart chart_data %>
+<h2>Expense last 12 months</h2>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% chart_data = Expense.unscoped.where(date: 12.months.ago...Time.now).group_by_month(:date).limit(12).sum(:amount) %>
+<%= line_chart chart_data %>
