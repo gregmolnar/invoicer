@@ -70,6 +70,7 @@ SimpleNavigation::Configuration.run do |navigation|
       sub_nav.dom_class = 'dropdown-menu'
     end
 
+    primary.item :balance, 'Balance', balance_path
     primary.item :settings, 'Settings <b class="caret"></b>', '#', class: 'dropdown', if: -> { current_user },  link: {:class => 'dropdown-toggle', 'data-toggle' => 'dropdown'} do |sub_nav|
       sub_nav.item :account, 'Account', edit_user_path(current_user)
       sub_nav.item :addresses, 'Addresses', user_addresses_path(current_user)

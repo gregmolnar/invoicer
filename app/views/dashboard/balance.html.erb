@@ -1,0 +1,31 @@
+<h1>Search</h1>
+<%= search_form_for @q, url: balance_path do |f| %>
+  <div class="row">
+    <div class="span3">
+      <%= f.label :date_gteq %>
+      <%= f.text_field :date_gteq, { data: {behaviour: "datepicker"} } %>
+    </div>
+    <div class="span3">
+      <%= f.label :date_lteq %>
+      <%= f.text_field :date_lteq, { data: {behaviour: "datepicker"} } %>
+    </div>
+  </div>
+  <%= f.submit 'Search', class: 'btn btn-primary' %>
+<% end %>
+<table class="table">
+  <tr>
+    <td>Incomes</td>
+    <td><%= @invoices.sum(:total) %></td>
+  </tr>
+  <tr>
+    <td>Expenses</td>
+    <td><%= @expenses.sum(:amount) %></td>
+  </tr>
+  <tr>
+    <td>Balance</td>
+    <td><%= @invoices.sum(:total) - @expenses.sum(:amount) %> </td>
+  </tr>
+</table>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% chart_data = [@invoices.group_by_month(:date).sum(:total), @expenses.group_by_month(:date).sum(:amount)] %>
+<%= line_chart chart_data %>

@@ -23,7 +23,7 @@ Invoicer::Application.routes.draw do
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  match '/balance' => 'dashboard#balance', as: :balance, via: [:get, :post]
   # You can have the root of your site routed with "root"
   root to: "dashboard#index"
 
