@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead:
 # gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0.rc1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -53,11 +53,11 @@ gem 'bootstrap-datepicker-rails'
 gem 'inherited_resources'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
-gem "ransack"
+gem "ransack", github: 'activerecord-hackery/ransack', branch: "rails-4.1"
+gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem "chartkick"
 gem 'groupdate'
 gem "paperclip", "~> 3.0"
-gem 'turn', :group => :test
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
