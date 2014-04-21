@@ -1,13 +1,34 @@
 source 'https://rubygems.org'
-
+require 'yaml'
 # Bundle edge Rails instead:
 # gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.rc1'
+gem 'rails', '4.1.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-gem 'pg'
-gem 'mysql2'
+require 'erb'
+database_file = File.join(File.dirname(__FILE__), "config/database.yml")
+if File.exist?(database_file)
+  database_config = YAML::load(ERB.new(IO.read(database_file)).result)
+  adapters = database_config.values.map {|c| c['adapter']}.compact.uniq
+  if adapters.any?
+    adapters.each do |adapter|
+      case adapter
+      when 'mysql2'
+        gem "mysql2"
+      when /postgresql/
+        gem "pg"
+      when /sqlite3/
+        gem "sqlite3"
+      else
+        warn("Unknown database adapter `#{adapter}` found in config/database.yml, use Gemfile.local to load your own database gems")
+      end
+    end
+  else
+    warn("No adapter found in config/database.yml, please configure it first")
+  end
+else
+  warn("Please configure your config/database.yml first")
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.1'
 
@@ -63,8 +84,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'quiet_assets'
-  gem 'rvm-capistrano'
-  gem 'capistrano', '~> 2.15.x', group: :development
+  gem 'capistrano-rbenv', '~> 1.x'
+  gem 'capistrano', '~> 2.15.x'
 end
 
 group :development, :test do
