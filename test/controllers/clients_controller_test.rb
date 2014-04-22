@@ -21,7 +21,7 @@ class ClientsControllerTest < ActionController::TestCase
       post :create, client: {  }
     end
 
-    assert_redirected_to client_path(assigns(:client))
+    assert_redirected_to client_addresses_path(assigns(:client))
   end
 
   test "should show client" do
