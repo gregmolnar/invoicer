@@ -8,6 +8,11 @@ class ClientsController < ApplicationController
       @clients = @clients.where("name like ?", "%#{params[:q]}%")
     end
   end
+
+  def create
+    create! { client_addresses_path(@client) }
+  end
+
   def permitted_params
     params.permit(:client => [:name, :address, :address2, :city, :county, :postcode, :country, :tax_number, :phone, :email, :website])
   end
