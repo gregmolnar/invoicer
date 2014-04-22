@@ -87,5 +87,5 @@ SimpleNavigation::Configuration.run do |navigation|
     # primary.auto_highlight = false
 
   end
-
+  navigation.consider_item_names_as_safe = true
 end
