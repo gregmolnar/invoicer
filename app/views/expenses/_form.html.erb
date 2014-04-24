@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :date, as: :string, input_html: { data: {behaviour: "datepicker"} } %>
+    <%= f.input :date, as: :string, input_html: { data: {behaviour: "datepicker"}, value: @expense.date.to_s } %>
     <%= f.input :amount %>
     <%= f.input :note %>
     <%= f.input :file %>
