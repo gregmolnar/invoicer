@@ -4,7 +4,6 @@ rvm:
   - 2.0.0
   - 1.9.3
 env:
-  - DB=sqlite
   - DB=mysql
   - DB=postgresql
 before_install: cp config/database.travis.yml config/database.yml

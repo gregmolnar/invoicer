@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140103085452) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "addresses", force: true do |t|
     t.integer  "client_id"
     t.string   "business_name"
@@ -37,6 +34,8 @@ ActiveRecord::Schema.define(version: 20140103085452) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "addresses", ["client_id"], name: "index_addresses_on_client_id"
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -69,8 +68,8 @@ ActiveRecord::Schema.define(version: 20140103085452) do
     t.datetime "updated_at"
   end
 
-  add_index "invoice_items", ["invoice_id"], name: "index_invoice_items_on_invoice_id", using: :btree
-  add_index "invoice_items", ["tax_rate_id"], name: "index_invoice_items_on_tax_rate_id", using: :btree
+  add_index "invoice_items", ["invoice_id"], name: "index_invoice_items_on_invoice_id"
+  add_index "invoice_items", ["tax_rate_id"], name: "index_invoice_items_on_tax_rate_id"
 
   create_table "invoice_statuses", force: true do |t|
     t.string   "name"
@@ -98,9 +97,9 @@ ActiveRecord::Schema.define(version: 20140103085452) do
     t.float    "total"
   end
 
-  add_index "invoices", ["client_id"], name: "index_invoices_on_client_id", using: :btree
-  add_index "invoices", ["invoice_status_id"], name: "index_invoices_on_invoice_status_id", using: :btree
-  add_index "invoices", ["name"], name: "index_invoices_on_name", using: :btree
+  add_index "invoices", ["client_id"], name: "index_invoices_on_client_id"
+  add_index "invoices", ["invoice_status_id"], name: "index_invoices_on_invoice_status_id"
+  add_index "invoices", ["name"], name: "index_invoices_on_name"
 
   create_table "tax_rates", force: true do |t|
     t.string   "name"
@@ -124,7 +123,7 @@ ActiveRecord::Schema.define(version: 20140103085452) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

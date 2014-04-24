@@ -1,6 +1,0 @@
-production: &production
-  adapter: sqlite3
-  database: db/production.sqlite
-  timeout: 5000
-test:
-  <<: *production
