@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 require 'yaml'
 # Bundle edge Rails instead:
 # gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.1'
 
 require 'erb'
 database_file = File.join(File.dirname(__FILE__), "config/database.yml")
