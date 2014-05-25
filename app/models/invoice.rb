@@ -1,7 +1,7 @@
 class Invoice < ActiveRecord::Base
   belongs_to :client
   belongs_to :invoice_status
-  has_many :invoice_items
+  has_many :invoice_items, dependent: :destroy
   validates_presence_of :client_id, :date, :due_date, :invoice_number, :user_address, :invoice_status
   accepts_nested_attributes_for :invoice_items, allow_destroy: true
   after_initialize :set_invoice_number
