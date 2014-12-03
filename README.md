@@ -8,6 +8,7 @@ A simple invoicing tool for freelancers built with Rails 4.
 
 * clone the repo `git clone git@github.com:gregmolnar/invoicer.git`
 * setup the database config from one of the sample files in `config`
+* run `bundle install`
 * run `rake db:create db:migrate db:seed`
 * start the server `rails s`
 * visit `localhost:3000` and login with `admin@example.com` and `password`
