@@ -19,4 +19,4 @@ sandi_meter
 config/deploy.rb
 config/puma.rb
 system/*
-
+Gemfile.lock
