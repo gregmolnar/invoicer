@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 require 'yaml'
 # Bundle edge Rails instead:
 # gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1'
+gem 'rails', '~> 4.2.0'
 
 require 'erb'
 database_file = File.join(File.dirname(__FILE__), "config/database.yml")
@@ -64,12 +64,12 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'devise'
+gem 'devise', '~> 3.4.1'
 gem 'bootstrap-sass', '~> 2.3.2'
 gem 'simple-navigation'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
-gem 'inherited_resources'
+gem 'inherited_resources', '~> 1.6.0'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem "ransack", github: 'activerecord-hackery/ransack', branch: "rails-4.1"
