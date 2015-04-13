@@ -66,7 +66,7 @@ end
 
 gem 'devise', '~> 3.4.1'
 gem 'bootstrap-sass', '~> 2.3.2'
-gem 'simple-navigation'
+gem 'simple-navigation', '~> 3.14.0'
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails'
 gem 'inherited_resources', '~> 1.6.0'
@@ -76,7 +76,7 @@ gem "ransack", github: 'activerecord-hackery/ransack', branch: "rails-4.1"
 gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem "chartkick"
 gem 'groupdate'
-gem "paperclip", "~> 3.0"
+gem "paperclip", "~> 3.0.x"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
