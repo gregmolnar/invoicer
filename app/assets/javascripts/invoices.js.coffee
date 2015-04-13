@@ -16,9 +16,10 @@ $ ->
       source: "/invoice_items.json",
       minLength: 2,
       select: ( event, ui ) ->
-        tbody = $(event.target).closest('tbody')
+        row = $(event.target).closest('tbody tr')
         $.each ui.item, (i, e) ->
-          tbody.find("input[name$='[#{i}]']").val(e)
+          console.log i
+          row.find("input[name$='[#{i}]']").val(e)
 
   $(document).on 'typeahead:selected', (event, data) ->
     if $(event.target).attr('id') == 'invoice_name'
