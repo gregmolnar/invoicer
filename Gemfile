@@ -13,7 +13,7 @@ if File.exist?(database_file)
     adapters.each do |adapter|
       case adapter
       when 'mysql2'
-        gem "mysql2"
+        gem "mysql2", '~> 0.3.20'
       when /postgresql/
         gem "pg"
       else
@@ -76,7 +76,7 @@ gem "ransack", github: 'activerecord-hackery/ransack', branch: "rails-4.1"
 gem "polyamorous", github: "activerecord-hackery/polyamorous"
 gem "chartkick"
 gem 'groupdate'
-gem "paperclip", "~> 3.0.x"
+gem "paperclip", "~> 4.3.x"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
